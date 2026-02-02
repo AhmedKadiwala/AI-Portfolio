@@ -1,9 +1,14 @@
 import pandas as pd
-from typing import List,Dict
+from pathlib import Path
+from typing import List, Dict
+
+# scamguard-ai/
+BASE_DIR = Path(__file__).resolve().parent
+DATASET_PATH = BASE_DIR / "data" / "dataset.csv"
 
 
-def load_scam_dataset(path: str) -> List[Dict]:
-    df = pd.read_csv(path)
+def load_scam_dataset() -> List[Dict]:
+    df = pd.read_csv(DATASET_PATH)
 
     examples = []
     for _, row in df.iterrows():
@@ -40,5 +45,3 @@ Flag Reason:
         )
 
     return "\n".join(formatted)
-
-

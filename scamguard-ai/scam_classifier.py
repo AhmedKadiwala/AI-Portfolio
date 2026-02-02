@@ -1,17 +1,14 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.output_parsers import PydanticOutputParser
-from langchain_core.runnables import RunnableSequence
-from dataset_loader import load_scam_dataset
-from dataset_loader import build_few_shot_examples
+from dataset_loader import load_scam_dataset, build_few_shot_examples
 from prompt import scam_detection_prompt
 from schema import ScamDetectionResult
 from config import GOOGLE_API_KEY
 
-DATASET_PATH = "C:/CODING NINJAS GEN AI COURSE/PROJECTS/AI-Portfolio/scamguard-ai/dataset.csv"
 
 def build_scam_classifier_chain():
     # Load dataset once
-    examples = load_scam_dataset(DATASET_PATH)
+    examples = load_scam_dataset()
     few_shot_text = build_few_shot_examples(examples)
 
     llm = ChatGoogleGenerativeAI(
