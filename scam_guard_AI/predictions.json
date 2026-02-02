@@ -1,0 +1,14 @@
+{
+  "Reminder: Your gas cylinder booking is confirmed.": "Not Scam",
+  "Power cut scheduled from 2 PM to 4 PM tomorrow.": "Not Scam",
+  "Act now! Your bank account is under threat.": "Scam",
+  "\u20b9500 has been debited from your account. Available balance: \u20b912,340.": "Not Scam",
+  "Congratulations! You've won \u20b950,000. Click to claim your prize.": "Scam",
+  "We have restricted your UPI services. Update now.": "Scam",
+  "Order #12456 has been shipped and will be delivered by 6 July.": "Not Scam",
+  "Your Amazon package has been dispatched.": "Not Scam",
+  "Your OTP is 123456. Share to verify your account.": "Scam",
+  "Do not share OTP with anyone. Except us: [OTP]": "Scam",
+  "Account password changed on 5 July at 3:45 PM.": "Not Scam",
+  "Payment of \u20b91,000 received from Paytm UPI.": "Not Scam"
+}

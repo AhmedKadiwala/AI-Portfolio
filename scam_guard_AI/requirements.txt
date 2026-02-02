@@ -1,0 +1,9 @@
+streamlit
+streamlit-autorefresh
+python-dotenv
+tavily-python
+langchain
+langchain-core
+langchain-community
+langchain-openai
+langchain-google-genai
