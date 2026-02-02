@@ -5,7 +5,7 @@ from scam_classifier import build_scam_classifier_chain
 from evaluation import evaluate_predictions
 
 
-DATASET_PATH = "/Users/swastiknayak/Desktop/scamguardAi/dataset.csv"
+DATASET_PATH = "C:/CODING NINJAS GEN AI COURSE/PROJECTS/AI-Portfolio/scamguard-ai/dataset.csv"
 CACHE_PATH = "predictions.json"
 
 

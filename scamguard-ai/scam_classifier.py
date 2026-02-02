@@ -7,7 +7,7 @@ from prompt import scam_detection_prompt
 from schema import ScamDetectionResult
 from config import GOOGLE_API_KEY
 
-DATASET_PATH = "C:/scam_guard_AI/dataset.csv"
+DATASET_PATH = "C:/CODING NINJAS GEN AI COURSE/PROJECTS/AI-Portfolio/scamguard-ai/dataset.csv"
 
 def build_scam_classifier_chain():
     # Load dataset once
