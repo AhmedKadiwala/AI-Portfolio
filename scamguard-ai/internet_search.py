@@ -21,37 +21,43 @@ def internet_search(
     include_raw_content: bool = False,
 ):
     """Run a web search"""
+
     try:
-        return tavily_client.search(
+        response = tavily_client.search(
             query=query,
             max_results=max_results,
             include_raw_content=include_raw_content,
             topic=topic,
         )
 
+        # ✅ Detect quota / API failure responses
+        if isinstance(response, dict) and response.get("error"):
+            print("\n⚠ Tavily API Error:", response["error"])
+            print("⚡ Switching to demo fallback mode...\n")
+
+            return {
+                "results": [
+                    {
+                        "title": "Demo Result – Tavily Credits Exhausted",
+                        "url": "https://example.com",
+                        "content": "Fallback response because API quota was exceeded."
+                    }
+                ]
+            }
+
+        return response
+
     except Exception as e:
-        print("\n⚠ Tavily search unavailable:", str(e))
+        print("\n⚠ Tavily Exception:", str(e))
         print("⚡ Switching to demo fallback mode...\n")
 
-        # Fallback response (keeps your demo alive)
         return {
             "results": [
                 {
-                    "title": "Demo Result – Live Search Unavailable",
+                    "title": "Demo Result – Search Unavailable",
                     "url": "https://example.com",
-                    "content": "This is a fallback response used when API credits are exhausted."
+                    "content": "Fallback response due to request failure."
                 }
             ]
         }
-
-
-if __name__ == "__main__":
-    result = internet_search(
-        query="General news",
-        max_results=3,
-        topic="general"
-    )
-
-    print("Search Results:")
-    print(result)
 
