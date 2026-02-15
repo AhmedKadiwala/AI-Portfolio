@@ -21,19 +21,37 @@ def internet_search(
     include_raw_content: bool = False,
 ):
     """Run a web search"""
-    return tavily_client.search(
-        query=query,
-        max_results=max_results,
-        include_raw_content=include_raw_content,
-        topic=topic,
-    )
+    try:
+        return tavily_client.search(
+            query=query,
+            max_results=max_results,
+            include_raw_content=include_raw_content,
+            topic=topic,
+        )
+
+    except Exception as e:
+        print("\n⚠ Tavily search unavailable:", str(e))
+        print("⚡ Switching to demo fallback mode...\n")
+
+        # Fallback response (keeps your demo alive)
+        return {
+            "results": [
+                {
+                    "title": "Demo Result – Live Search Unavailable",
+                    "url": "https://example.com",
+                    "content": "This is a fallback response used when API credits are exhausted."
+                }
+            ]
+        }
+
 
 if __name__ == "__main__":
     result = internet_search(
-        query= "General news",
+        query="General news",
         max_results=3,
         topic="general"
     )
 
     print("Search Results:")
     print(result)
+
